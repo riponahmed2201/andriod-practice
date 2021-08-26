@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">BasicApp</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="platform">Android</string>
+    <string name="language">Java</string>
+    <string name="switch_view">switch view</string>
+</resources>

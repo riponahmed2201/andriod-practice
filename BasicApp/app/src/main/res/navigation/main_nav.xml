@@ -14,5 +14,14 @@
         android:id="@+id/inputFragment"
         android:name="com.example.basicapp.InputFragment"
         android:label="fragment_input"
-        tools:layout="@layout/fragment_input" />
+        tools:layout="@layout/fragment_input" >
+        <action
+            android:id="@+id/action_inputFragment_to_infoFragment"
+            app:destination="@id/infoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/infoFragment"
+        android:name="com.example.basicapp.InfoFragment"
+        android:label="fragment_info"
+        tools:layout="@layout/fragment_info" />
 </navigation>

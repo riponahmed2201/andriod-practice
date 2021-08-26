@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +20,7 @@ public class InputFragment extends Fragment {
     Button submitButton;
     TextView displayText;
     EditText nameEditText;
+    public static final String NAME_KEY = "name";
 
     public InputFragment() {
         // Required empty public constructor
@@ -44,10 +46,14 @@ public class InputFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 String name = nameEditText.getText().toString();
-                if (name.isEmpty()){
-                    nameEditText.setError("enter your name.");
-                }
-                displayText.setText(name);
+//                if (name.isEmpty()){
+//                    nameEditText.setError("enter your name.");
+//                }
+//                displayText.setText(name);
+                Bundle bundle = new Bundle();
+                bundle.putString(NAME_KEY,name);
+
+                Navigation.findNavController(view).navigate(R.id.action_inputFragment_to_infoFragment,bundle);
             }
         });
     }

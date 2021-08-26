@@ -15,6 +15,8 @@ import android.widget.TextView;
 public class InfoFragment extends Fragment {
 
     TextView nameText;
+    TextView isVaccinatedText;
+    TextView areaText;
 
     public InfoFragment() {
         // Required empty public constructor
@@ -31,9 +33,19 @@ public class InfoFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         nameText = view.findViewById(R.id.nameText);
+        isVaccinatedText = view.findViewById(R.id.isVaccinatedText);
+        areaText = view.findViewById(R.id.areaText);
         String name = getArguments().getString(InputFragment.NAME_KEY);
+        String isVaccinated = getArguments().getString(InputFragment.IS_VACCINATED_KEY);
+        String areaName = getArguments().getString(InputFragment.AREA_KEY);
         if (name !=null){
             nameText.setText(name);
+        }
+        if (isVaccinated !=null){
+            isVaccinatedText.setText(isVaccinated);
+        }
+        if (areaName !=null){
+            areaText.setText(areaName);
         }
     }
 }

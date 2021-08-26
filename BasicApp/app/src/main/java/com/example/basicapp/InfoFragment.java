@@ -11,6 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.basicapp.models.User;
+
 
 public class InfoFragment extends Fragment {
 
@@ -35,17 +37,26 @@ public class InfoFragment extends Fragment {
         nameText = view.findViewById(R.id.nameText);
         isVaccinatedText = view.findViewById(R.id.isVaccinatedText);
         areaText = view.findViewById(R.id.areaText);
-        String name = getArguments().getString(InputFragment.NAME_KEY);
-        String isVaccinated = getArguments().getString(InputFragment.IS_VACCINATED_KEY);
-        String areaName = getArguments().getString(InputFragment.AREA_KEY);
-        if (name !=null){
-            nameText.setText(name);
+        User user = (User) getArguments().getSerializable(InputFragment.USER_KEY);
+
+        if (user != null){
+            nameText.setText(user.getName());
+            isVaccinatedText.setText(user.getIsVaccinated());
+            areaText.setText(user.getAreaName());
         }
-        if (isVaccinated !=null){
-            isVaccinatedText.setText(isVaccinated);
-        }
-        if (areaName !=null){
-            areaText.setText(areaName);
-        }
+//        String name = getArguments().getString(InputFragment.NAME_KEY);
+//        String isVaccinated = getArguments().getString(InputFragment.IS_VACCINATED_KEY);
+//        String areaName = getArguments().getString(InputFragment.AREA_KEY);
+
+
+//        if (name !=null){
+//            nameText.setText(name);
+//        }
+//        if (isVaccinated !=null){
+//            isVaccinatedText.setText(isVaccinated);
+//        }
+//        if (areaName !=null){
+//            areaText.setText(areaName);
+//        }
     }
 }

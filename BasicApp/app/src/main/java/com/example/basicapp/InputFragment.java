@@ -19,6 +19,8 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.example.basicapp.models.User;
+
 
 public class InputFragment extends Fragment {
 
@@ -28,9 +30,12 @@ public class InputFragment extends Fragment {
     RadioGroup vaccineRg;
     RadioButton selectedRadioButton;
     Spinner areaSpinner;
-    public static final String NAME_KEY = "name";
-    public static final String IS_VACCINATED_KEY = "isVaccinated";
-    public static final String AREA_KEY = "area";
+
+//    public static final String NAME_KEY = "name";
+//    public static final String IS_VACCINATED_KEY = "isVaccinated";
+//    public static final String AREA_KEY = "area";
+
+    public static final String USER_KEY = "user";
 
     public String[] area = {"Badda", "Gulshan", "Rampura", "Banani"};
     private ArrayAdapter<String> areaAdapter;
@@ -84,10 +89,15 @@ public class InputFragment extends Fragment {
 //                    nameEditText.setError("enter your name.");
 //                }
 //                displayText.setText(name);
+
+                User user = new User(name,isVaccinated,areaName);
+
                 Bundle bundle = new Bundle();
-                bundle.putString(NAME_KEY, name);
-                bundle.putString(IS_VACCINATED_KEY, isVaccinated);
-                bundle.putString(AREA_KEY, areaName);
+                bundle.putSerializable(USER_KEY,user);
+
+//                bundle.putString(NAME_KEY, name);
+//                bundle.putString(IS_VACCINATED_KEY, isVaccinated);
+//                bundle.putString(AREA_KEY, areaName);
 
                 Navigation.findNavController(v).navigate(R.id.action_inputFragment_to_infoFragment, bundle);
             }

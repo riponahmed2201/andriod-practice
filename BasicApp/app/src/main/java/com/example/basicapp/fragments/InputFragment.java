@@ -1,4 +1,4 @@
-package com.example.basicapp;
+package com.example.basicapp.fragments;
 
 import android.os.Bundle;
 
@@ -19,7 +19,9 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.example.basicapp.R;
 import com.example.basicapp.models.User;
+import com.example.basicapp.repositoy.UserRepository;
 
 
 public class InputFragment extends Fragment {
@@ -92,6 +94,7 @@ public class InputFragment extends Fragment {
 
                 User user = new User(name,isVaccinated,areaName);
 
+                UserRepository.savUser(user);
                 Bundle bundle = new Bundle();
                 bundle.putSerializable(USER_KEY,user);
 
@@ -99,7 +102,8 @@ public class InputFragment extends Fragment {
 //                bundle.putString(IS_VACCINATED_KEY, isVaccinated);
 //                bundle.putString(AREA_KEY, areaName);
 
-                Navigation.findNavController(v).navigate(R.id.action_inputFragment_to_infoFragment, bundle);
+//                Navigation.findNavController(v).navigate(R.id.action_inputFragment_to_listFragment, bundle);
+                Navigation.findNavController(v).navigate(R.id.action_inputFragment_to_listFragment);
             }
         });
     }

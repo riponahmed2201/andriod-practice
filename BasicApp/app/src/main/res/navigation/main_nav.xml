@@ -3,25 +3,37 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_nav"
-    app:startDestination="@id/inputFragment">
+    app:startDestination="@id/listFragment">
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.basicapp.HomeFragment"
+        android:name="com.example.basicapp.fragments.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/inputFragment"
-        android:name="com.example.basicapp.InputFragment"
+        android:name="com.example.basicapp.fragments.InputFragment"
         android:label="fragment_input"
         tools:layout="@layout/fragment_input" >
         <action
-            android:id="@+id/action_inputFragment_to_infoFragment"
-            app:destination="@id/infoFragment" />
+            android:id="@+id/action_inputFragment_to_listFragment"
+            app:destination="@id/listFragment" />
     </fragment>
     <fragment
         android:id="@+id/infoFragment"
-        android:name="com.example.basicapp.InfoFragment"
+        android:name="com.example.basicapp.fragments.InfoFragment"
         android:label="fragment_info"
         tools:layout="@layout/fragment_info" />
+    <fragment
+        android:id="@+id/listFragment"
+        android:name="com.example.basicapp.fragments.ListFragment"
+        android:label="fragment_list"
+        tools:layout="@layout/fragment_list" >
+        <action
+            android:id="@+id/action_listFragment_to_infoFragment"
+            app:destination="@id/infoFragment" />
+        <action
+            android:id="@+id/action_listFragment_to_inputFragment"
+            app:destination="@id/inputFragment" />
+    </fragment>
 </navigation>

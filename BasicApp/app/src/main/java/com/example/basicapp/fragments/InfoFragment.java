@@ -1,4 +1,4 @@
-package com.example.basicapp;
+package com.example.basicapp.fragments;
 
 import android.os.Bundle;
 
@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.basicapp.R;
 import com.example.basicapp.models.User;
 
 

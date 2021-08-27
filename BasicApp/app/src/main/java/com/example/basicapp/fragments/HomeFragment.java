@@ -1,4 +1,4 @@
-package com.example.basicapp;
+package com.example.basicapp.fragments;
 
 import android.os.Bundle;
 
@@ -12,6 +12,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.basicapp.R;
 
 
 public class HomeFragment extends Fragment {

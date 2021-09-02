@@ -2,9 +2,11 @@ package com.example.basicapp.adapter;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -38,9 +40,12 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
     @Override
     public void onBindViewHolder(@NonNull UserViewHolder holder, int position) {
         User user = users.get(position);
-        holder.areaNameText.setText(user.getAreaName());
+
+//        holder.areaNameText.setText(user.getAreaName());
         holder.userNameText.setText(user.getName());
-        holder.areaNameText.setText(user.getIsVaccinated());
+//        holder.isVaccinatedText.setText(user.getIsVaccinated());
+        holder.icon.setImageResource(user.getIsVaccinated().equals("yes") ? R.drawable.check : R.drawable.multiply);
+
         holder.userItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -57,17 +62,21 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
         return users.size();
     }
 
-    class UserViewHolder extends RecyclerView.ViewHolder{
+    static class UserViewHolder extends RecyclerView.ViewHolder{
 
-        TextView userNameText, isVaccinatedText,areaNameText;
+        TextView userNameText;
+//        TextView isVaccinatedText;
+        TextView areaNameText;
         LinearLayout userItem;
+        ImageView icon;
 
         public UserViewHolder(@NonNull View itemView) {
             super(itemView);
             userNameText = itemView.findViewById(R.id.nameText);
-            isVaccinatedText = itemView.findViewById(R.id.isVaccinatedText);
+//            isVaccinatedText = itemView.findViewById(R.id.isVaccinatedText);
             userNameText = itemView.findViewById(R.id.areaText);
             userItem = itemView.findViewById(R.id.userLayout);
+            icon = itemView.findViewById(R.id.isVaccinatedIcon);
         }
     }
 }

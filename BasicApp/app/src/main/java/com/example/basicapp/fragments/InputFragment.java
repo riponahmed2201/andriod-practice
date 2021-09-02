@@ -95,6 +95,7 @@ public class InputFragment extends Fragment {
                 User user = new User(name,isVaccinated,areaName);
 
                 UserRepository.savUser(user);
+
 //                Bundle bundle = new Bundle();
 //                bundle.putSerializable(USER_KEY,user);
 
